@@ -26,7 +26,9 @@ public class InteractionSystem : MonoBehaviour
     [SerializeField] private Animator LeftDoubleDoor = null;
     bool DoubleDoorisOpen = false;
 
-    int PotionCount = 0; 
+    int PotionCount = 0;
+
+    AudioSource audioData;
     
     // Start is called before the first frame update
     void Start()
@@ -43,7 +45,7 @@ public class InteractionSystem : MonoBehaviour
         Interactables.Add("DoubleDoorTrigger2");
         Interactables.Add("DoubleDoorTrigger3");
         Interactables.Add("Brew");
-        //Interactables.Add("Book_Open");
+        //Interactables.Add("Book_Open");     
     }
 
     // Update is called once per frame
@@ -106,9 +108,10 @@ public class InteractionSystem : MonoBehaviour
                     {
                         tempPopup.GetComponentInChildren<TMP_Text>().SetText("Turn on Fireplace"); //Update text
                         Debug.Log("Turned off Fireplace");
-
                         firePlace = false;
                         fireplaceEmitter.Stop();
+                        
+                        Debug.Log("Sound Light");
                     }
 
                     else
