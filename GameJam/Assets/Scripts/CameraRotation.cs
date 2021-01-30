@@ -5,12 +5,19 @@ using UnityEngine;
 public class CameraRotation : MonoBehaviour
 {
     public Transform Player; 
-    float MouseSensitivity = 150.0f;
+    float MouseSensitivity = 130.0f;
     float XRotate = 0.0f;
+    float yRotate = 0.0f;
 
      void Awake()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Locked; 
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        
     }
 
     // Update is called once per frame
@@ -20,9 +27,10 @@ public class CameraRotation : MonoBehaviour
         float mouseYAxis = Input.GetAxis("Mouse Y") * MouseSensitivity * Time.deltaTime;
 
         XRotate -= mouseYAxis;
-        XRotate = Mathf.Clamp(XRotate, -90.0f, 90.0f);
+        XRotate = Mathf.Clamp(XRotate, -90f, 90f);
+        yRotate += mouseXAxis;
 
-        transform.localRotation = Quaternion.Euler(XRotate, 0.0f, 0.0f);
-        Player.Rotate(Vector3.up * mouseXAxis);
+        Player.localRotation = Quaternion.Euler(0.0f, yRotate, 0.0f);
+        transform.localRotation = Quaternion.Euler(XRotate, 0f, 0f);
     }
 }
