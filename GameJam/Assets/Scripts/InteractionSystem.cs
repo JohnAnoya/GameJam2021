@@ -110,7 +110,7 @@ public class InteractionSystem : MonoBehaviour
                         Debug.Log("Turned off Fireplace");
                         firePlace = false;
                         fireplaceEmitter.Stop();
-                        
+
                         Debug.Log("Sound Light");
                     }
 
@@ -157,12 +157,12 @@ public class InteractionSystem : MonoBehaviour
                 }
 
                 if (Interactables.Contains("Hint1") && Input.GetMouseButtonDown(0) && !showingNote)
-                {            
+                {
                     showingNote = true;
                 }
                 else if (showingNote && Input.GetMouseButtonDown(0))
                 {
-                   
+
                     showingNote = false;
                 }
             }
@@ -176,7 +176,7 @@ public class InteractionSystem : MonoBehaviour
                     tempPopup.GetComponentInChildren<TMP_Text>().SetText("Open Door");
                 }
 
-                else if(!showingPopup && !DoubleDoorisOpen && !PlayerScript.CheckInventory("Key"))
+                else if (!showingPopup && !DoubleDoorisOpen && !PlayerScript.CheckInventory("Key"))
                 {
                     showingPopup = true;
                     tempPopup = Instantiate(InteractionPopUp, new Vector3(hit.transform.position.x - 0.5f, hit.transform.position.y + 0.5f, hit.transform.position.z + 1.0f), Quaternion.identity);
@@ -190,7 +190,7 @@ public class InteractionSystem : MonoBehaviour
                     RightDoubleDoor.Play("RightDoubleDoorOpen", 0, 0.0f);
                     LeftDoubleDoor.Play("LeftDoubleDoorOpen", 0, 0.0f);
                     Destroy(tempPopup);
-                    showingPopup = false; 
+                    showingPopup = false;
                 }
             }
 
@@ -203,26 +203,27 @@ public class InteractionSystem : MonoBehaviour
                     tempPopup.GetComponentInChildren<TMP_Text>().SetText("Pickup Potion");
                 }
 
-                else if (Items.Contains("Potion") && Input.GetMouseButtonDown(0) && PotionCount < 4) {
+                else if (Items.Contains("Potion") && Input.GetMouseButtonDown(0) && PotionCount < 4)
+                {
                     Destroy(hit.transform.parent.gameObject);
                     PotionCount += 1;
-                    PlayerScript.AddToInventory("Potion" + PotionCount.ToString());      
+                    PlayerScript.AddToInventory("Potion" + PotionCount.ToString());
                     Debug.Log("Potion Count " + PotionCount);
                 }
             }
 
-            else if(hit.transform.tag == "Brew")
+            else if (hit.transform.tag == "Brew")
             {
                 if (!showingPopup)
                 {
                     showingPopup = true;
                     tempPopup = Instantiate(InteractionPopUp, new Vector3(hit.transform.position.x, hit.transform.position.y, hit.transform.position.z), Quaternion.identity);
-                    tempPopup.GetComponentInChildren<TMP_Text>().SetText("Brew Potions " + PotionCount +  " /3");
+                    tempPopup.GetComponentInChildren<TMP_Text>().SetText("Brew Potions " + PotionCount + " /3");
                 }
 
-                else if (PlayerScript.CheckInventory("Potion1") && 
-                   PlayerScript.CheckInventory("Potion2") && 
-                   PlayerScript.CheckInventory("Potion3") && 
+                else if (PlayerScript.CheckInventory("Potion1") &&
+                   PlayerScript.CheckInventory("Potion2") &&
+                   PlayerScript.CheckInventory("Potion3") &&
                    Input.GetMouseButtonDown(0) && !DoubleDoorisOpen)
                 {
                     DoubleDoorisOpen = true;
