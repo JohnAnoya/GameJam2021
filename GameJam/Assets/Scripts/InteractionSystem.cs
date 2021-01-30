@@ -24,12 +24,15 @@ public class InteractionSystem : MonoBehaviour
 
     [SerializeField] private Animator RightDoubleDoor = null;
     [SerializeField] private Animator LeftDoubleDoor = null;
-    bool DoubleDoorisOpen = false; 
+    bool DoubleDoorisOpen = false;
+
+    int PotionCount = 0; 
     
     // Start is called before the first frame update
     void Start()
     {
         Items.Add("Key");
+        Items.Add("Potion");
         Interactables.Add("FireplaceSwitch");
         Interactables.Add("Note1");
         Interactables.Add("Note2");
@@ -39,6 +42,7 @@ public class InteractionSystem : MonoBehaviour
         Interactables.Add("DoubleDoorTrigger1");
         Interactables.Add("DoubleDoorTrigger2");
         Interactables.Add("DoubleDoorTrigger3");
+        Interactables.Add("Brew");
         //Interactables.Add("Book_Open");
     }
 
@@ -111,6 +115,7 @@ public class InteractionSystem : MonoBehaviour
                     {
                         tempPopup.GetComponentInChildren<TMP_Text>().SetText("Turn off Fireplace"); //Update text
                         Debug.Log("Turned on Fireplace");
+
                         firePlace = true;
                         fireplaceEmitter.Play();
                     }
@@ -184,6 +189,45 @@ public class InteractionSystem : MonoBehaviour
                     Destroy(tempPopup);
                     showingPopup = false; 
                 }
+            }
+
+            else if (hit.transform.tag == "Potion")
+            {
+                if (!showingPopup)
+                {
+                    showingPopup = true;
+                    tempPopup = Instantiate(InteractionPopUp, new Vector3(hit.transform.position.x, hit.transform.position.y, hit.transform.position.z), Quaternion.identity);
+                    tempPopup.GetComponentInChildren<TMP_Text>().SetText("Pickup Potion");
+                }
+
+                else if (Items.Contains("Potion") && Input.GetMouseButtonDown(0) && PotionCount < 4) {
+                    Destroy(hit.transform.parent.gameObject);
+                    PotionCount += 1;
+                    PlayerScript.AddToInventory("Potion" + PotionCount.ToString());      
+                    Debug.Log("Potion Count " + PotionCount);
+                }
+            }
+
+            else if(hit.transform.tag == "Brew")
+            {
+                if (!showingPopup)
+                {
+                    showingPopup = true;
+                    tempPopup = Instantiate(InteractionPopUp, new Vector3(hit.transform.position.x, hit.transform.position.y, hit.transform.position.z), Quaternion.identity);
+                    tempPopup.GetComponentInChildren<TMP_Text>().SetText("Brew Potions " + PotionCount +  " /3");
+                }
+
+                else if (PlayerScript.CheckInventory("Potion1") && 
+                   PlayerScript.CheckInventory("Potion2") && 
+                   PlayerScript.CheckInventory("Potion3") && 
+                   Input.GetMouseButtonDown(0) && !DoubleDoorisOpen)
+                {
+                    DoubleDoorisOpen = true;
+                    RightDoubleDoor.Play("RightDoubleDoorOpen", 0, 0.0f);
+                    LeftDoubleDoor.Play("LeftDoubleDoorOpen", 0, 0.0f);
+                    Debug.Log("Player has all potions and is trying to brew");
+                }
+
             }
         }
 
