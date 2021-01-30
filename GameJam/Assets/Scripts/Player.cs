@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
     {
         characterController = gameObject.GetComponent<CharacterController>();
         Items.Add("Key");
-        Interactables.Add("Fireplace");
+        Interactables.Add("FireplaceSwitch");
     }
 
     // Update is called once per frame
@@ -59,16 +59,18 @@ public class Player : MonoBehaviour
                     Items.Remove(hit.transform.name);
                     Inventory.Add(hit.transform.name);  
                     Destroy(hit.transform.gameObject);
-                    Debug.Log(hit.transform.name + " picked up");
+                    Destroy(tempPopup);
+                    showingPopup = false;
+                    Debug.Log("Key picked up");
                 }               
             }
 
-            else if (hit.transform.name == "Fireplace")
+            else if (hit.transform.name == "FireplaceSwitch")
             {
                 if (!showingPopup)
                 {
                     showingPopup = true;
-                    tempPopup = Instantiate(InteractionPopUp, new Vector3(hit.transform.position.x, hit.transform.position.y + 1.0f, hit.transform.position.z - 0.4f), Quaternion.identity);
+                    tempPopup = Instantiate(InteractionPopUp, new Vector3(hit.transform.position.x + 0.5f, hit.transform.position.y + 0.9f, hit.transform.position.z), Quaternion.identity);
 
                     if (firePlace)
                     {
