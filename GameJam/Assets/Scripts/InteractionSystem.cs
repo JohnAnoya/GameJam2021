@@ -128,6 +128,26 @@ public class InteractionSystem : MonoBehaviour
                 }
             }
 
+            else if (hit.transform.name == "Hint")
+            {
+                if (!showingPopup)
+                {
+                    showingPopup = true;
+                    tempPopup = Instantiate(InteractionPopUp, new Vector3(hit.transform.position.x, hit.transform.position.y, hit.transform.position.z), Quaternion.identity);
+                    tempPopup.GetComponentInChildren<TMP_Text>().SetText("Find the key to open the gate");
+                }
+
+                if (Interactables.Contains(hit.transform.name) && Input.GetMouseButtonDown(0) && !showingNote)
+                {
+                    
+                    showingNote = true;
+                }
+                else if (showingNote && Input.GetMouseButtonDown(0))
+                {
+                   
+                    showingNote = false;
+                }
+            }
         }
 
         else if (showingPopup)
