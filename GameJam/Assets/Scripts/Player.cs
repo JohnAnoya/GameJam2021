@@ -4,19 +4,25 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+
+
+    List<string> Items = new List<string>();
+    List<string> Inventory = new List<string>(); 
+    
     public Camera camera; 
     CharacterController characterController; 
     Vector3 playerVel;
     float WalkSpeed = 8.0f;
     float gravity = -9.81f;
 
-    RaycastHit hit; 
+    RaycastHit hit;
+    float thickness = 1.0f; 
 
     // Start is called before the first frame update
     void Start()
     {
         characterController = gameObject.GetComponent<CharacterController>();
-        
+        Items.Add("Key");
     }
 
     // Update is called once per frame
@@ -31,9 +37,16 @@ public class Player : MonoBehaviour
 
         Ray ray = camera.ScreenPointToRay(Input.mousePosition); 
 
-        if(Physics.Raycast(ray, out hit))
+        if(Physics.SphereCast(ray, thickness, out hit))
         {
-            Debug.Log(hit.transform.name);
+            if (hit.transform.name == "Key" && !Inventory.Contains(hit.transform.name) && Input.GetMouseButtonDown(0))
+            {       
+                Items.Remove(hit.transform.name);
+                Inventory.Add(hit.transform.name);
+                Debug.Log("Key picked up");
+
+            }
+            
         }
 
         //playerVel.y += gravity * Time.deltaTime;
