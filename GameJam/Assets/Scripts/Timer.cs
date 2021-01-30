@@ -6,8 +6,8 @@ using TMPro;
 
 public class Timer : MonoBehaviour
 {
-    public float Seconds = 0;
-    public float Minutes = 1;
+    static public float Seconds = 0;
+    static public float Minutes = 15;
     public TMP_Text timeDisplay;
 
     // Start is called before the first frame update
@@ -31,7 +31,7 @@ public class Timer : MonoBehaviour
             {
                 Minutes = 0;
                 Seconds = 0;
-
+                timeDisplay.text =  "GAMER OVER";
             }
         }
         else
