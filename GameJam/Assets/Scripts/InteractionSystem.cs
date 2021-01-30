@@ -21,6 +21,10 @@ public class InteractionSystem : MonoBehaviour
     bool showingNote = false;
     //[SerializeField]
     //Image hintBook;
+
+    [SerializeField] private Animator RightDoubleDoor = null;
+    [SerializeField] private Animator LeftDoubleDoor = null;
+    bool DoubleDoorisOpen = false; 
     
     // Start is called before the first frame update
     void Start()
@@ -28,6 +32,7 @@ public class InteractionSystem : MonoBehaviour
         Items.Add("Key");
         Interactables.Add("FireplaceSwitch");
         Interactables.Add("Note_1");
+        Interactables.Add("DoubleDoorTrigger");
         //Interactables.Add("Book_Open");
     }
 
@@ -148,6 +153,35 @@ public class InteractionSystem : MonoBehaviour
                     showingNote = false;
                 }
             }
+
+            else if (hit.transform.name == "DoubleDoorTrigger")
+            {
+                if (!showingPopup && !DoubleDoorisOpen && PlayerScript.CheckInventory("Key"))
+                {
+                    showingPopup = true;
+                    tempPopup = Instantiate(InteractionPopUp, new Vector3(hit.transform.position.x - 0.5f, hit.transform.position.y + 0.5f, hit.transform.position.z + 1.0f), Quaternion.identity);
+                    tempPopup.GetComponentInChildren<TMP_Text>().SetText("Open Door");
+                }
+
+                else if(!showingPopup && !DoubleDoorisOpen && !PlayerScript.CheckInventory("Key"))
+                {
+                    showingPopup = true;
+                    tempPopup = Instantiate(InteractionPopUp, new Vector3(hit.transform.position.x - 0.5f, hit.transform.position.y + 0.5f, hit.transform.position.z + 1.0f), Quaternion.identity);
+                    tempPopup.GetComponentInChildren<TMP_Text>().SetText("Door is locked");
+                }
+
+
+                else if (Interactables.Contains(hit.transform.name) && Input.GetMouseButtonDown(0) && !DoubleDoorisOpen && PlayerScript.CheckInventory("Key"))
+                {
+                    DoubleDoorisOpen = true;
+                    RightDoubleDoor.Play("RightDoubleDoorOpen", 0, 0.0f);
+                    LeftDoubleDoor.Play("LeftDoubleDoorOpen", 0, 0.0f);
+                    Destroy(tempPopup);
+                    showingPopup = false; 
+                }
+            }
+
+
         }
 
         else if (showingPopup)
