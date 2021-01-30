@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -21,7 +22,13 @@ public class Player : MonoBehaviour
     bool showingPopup = false;
 
     bool firePlace = true;
-    public ParticleSystem fireplaceEmitter; 
+    public ParticleSystem fireplaceEmitter;
+
+    [SerializeField]
+    Image note1;
+    bool showingNote = false;
+    //[SerializeField]
+    //Image hintBook;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +36,8 @@ public class Player : MonoBehaviour
         characterController = gameObject.GetComponent<CharacterController>();
         Items.Add("Key");
         Interactables.Add("FireplaceSwitch");
+        Interactables.Add("Note_1");
+        //Interactables.Add("Book_Open");
     }
 
     // Update is called once per frame
@@ -53,16 +62,16 @@ public class Player : MonoBehaviour
                     showingPopup = true;
                     tempPopup = Instantiate(InteractionPopUp, new Vector3(hit.transform.position.x, hit.transform.position.y + 0.25f, hit.transform.position.z - 0.4f), Quaternion.identity);
                     tempPopup.GetComponentInChildren<TMP_Text>().SetText("Pick up Key");
-                } 
+                }
 
                 if (!Inventory.Contains(hit.transform.name) && Input.GetMouseButtonDown(0) && !firePlace) {
                     Items.Remove(hit.transform.name);
-                    Inventory.Add(hit.transform.name);  
+                    Inventory.Add(hit.transform.name);
                     Destroy(hit.transform.gameObject);
                     Destroy(tempPopup);
                     showingPopup = false;
                     Debug.Log("Key picked up");
-                }               
+                }
             }
 
             else if (hit.transform.name == "FireplaceSwitch")
@@ -83,13 +92,13 @@ public class Player : MonoBehaviour
                     }
                 }
 
-                if(Interactables.Contains(hit.transform.name) && Input.GetMouseButtonDown(0))
+                if (Interactables.Contains(hit.transform.name) && Input.GetMouseButtonDown(0))
                 {
                     if (firePlace)
                     {
                         tempPopup.GetComponentInChildren<TMP_Text>().SetText("Turn on Fireplace");
                         Debug.Log("Turned off Fireplace");
-                  
+
                         firePlace = false;
                         fireplaceEmitter.Stop();
                     }
@@ -101,9 +110,31 @@ public class Player : MonoBehaviour
                         firePlace = true;
                         fireplaceEmitter.Play();
                     }
-                    
+
                 }
             }
+
+            else if (hit.transform.name == "Note_1")
+            {
+                if (!showingPopup)
+                {
+                    showingPopup = true;
+                    tempPopup = Instantiate(InteractionPopUp, new Vector3(hit.transform.position.x, hit.transform.position.y + 1.0f, hit.transform.position.z - 0.4f), Quaternion.identity);
+                    tempPopup.GetComponentInChildren<TMP_Text>().SetText("Pick up note");
+                }
+            
+                if (Interactables.Contains(hit.transform.name) && Input.GetMouseButtonDown(0) && !showingNote)
+                {
+                    note1.enabled = true;
+                    showingNote = true;
+                }
+                else if (showingNote && Input.GetMouseButtonDown(0))
+                {
+                    note1.enabled = false;
+                    showingNote = false;
+                }
+            }
+           
         }
 
         else if (showingPopup)
