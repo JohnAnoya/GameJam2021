@@ -31,8 +31,14 @@ public class InteractionSystem : MonoBehaviour
     {
         Items.Add("Key");
         Interactables.Add("FireplaceSwitch");
-        Interactables.Add("Note_1");
-        Interactables.Add("DoubleDoorTrigger");
+        Interactables.Add("Note1");
+        Interactables.Add("Note2");
+        Interactables.Add("Note3");
+        Interactables.Add("Note4");
+        Interactables.Add("Note5");
+        Interactables.Add("DoubleDoorTrigger1");
+        Interactables.Add("DoubleDoorTrigger2");
+        Interactables.Add("DoubleDoorTrigger3");
         //Interactables.Add("Book_Open");
     }
 
@@ -52,7 +58,7 @@ public class InteractionSystem : MonoBehaviour
         if (Physics.Raycast(ray, out hit, 1.0f))
         {
             Debug.DrawRay(Camera.main.transform.position, ray.direction, Color.green);
-            if (hit.transform.name == "Key")
+            if (hit.transform.tag == "Key")
             {
                 if (!showingPopup && !firePlace)
                 {
@@ -61,10 +67,10 @@ public class InteractionSystem : MonoBehaviour
                     tempPopup.GetComponentInChildren<TMP_Text>().SetText("Pick up Key");
                 }
 
-                if (!PlayerScript.CheckInventory(hit.transform.name) && Input.GetMouseButtonDown(0) && !firePlace)
+                if (!PlayerScript.CheckInventory("Key") && Input.GetMouseButtonDown(0) && !firePlace)
                 {
-                    Items.Remove(hit.transform.name);
-                    PlayerScript.AddToInventory(hit.transform.name);
+                    Items.Remove("Key");
+                    PlayerScript.AddToInventory("Key");
                     Destroy(hit.transform.gameObject);
                     Destroy(tempPopup);
                     showingPopup = false;
@@ -72,7 +78,7 @@ public class InteractionSystem : MonoBehaviour
                 }
             }
 
-            else if (hit.transform.name == "FireplaceSwitch")
+            else if (hit.transform.tag == "FireplaceSwitch")
             {
                 if (!showingPopup)
                 {
@@ -90,11 +96,11 @@ public class InteractionSystem : MonoBehaviour
                     }
                 }
 
-                if (Interactables.Contains(hit.transform.name) && Input.GetMouseButtonDown(0))
+                if (Interactables.Contains("FireplaceSwitch") && Input.GetMouseButtonDown(0))
                 {
-                    if (firePlace)
+                    if (firePlace) //if fireplace is on
                     {
-                        tempPopup.GetComponentInChildren<TMP_Text>().SetText("Turn on Fireplace");
+                        tempPopup.GetComponentInChildren<TMP_Text>().SetText("Turn on Fireplace"); //Update text
                         Debug.Log("Turned off Fireplace");
 
                         firePlace = false;
@@ -103,7 +109,7 @@ public class InteractionSystem : MonoBehaviour
 
                     else
                     {
-                        tempPopup.GetComponentInChildren<TMP_Text>().SetText("Turn off Fireplace");
+                        tempPopup.GetComponentInChildren<TMP_Text>().SetText("Turn off Fireplace"); //Update text
                         Debug.Log("Turned on Fireplace");
                         firePlace = true;
                         fireplaceEmitter.Play();
@@ -112,7 +118,7 @@ public class InteractionSystem : MonoBehaviour
                 }
             }
 
-            else if (hit.transform.name == "Note_1")
+            else if (hit.transform.tag == "Note1")
             {
                 if (!showingPopup)
                 {
@@ -121,7 +127,7 @@ public class InteractionSystem : MonoBehaviour
                     tempPopup.GetComponentInChildren<TMP_Text>().SetText("Pick up note");
                 }
 
-                if (Interactables.Contains(hit.transform.name) && Input.GetMouseButtonDown(0) && !showingNote)
+                if (Interactables.Contains("Note1") && Input.GetMouseButtonDown(0) && !showingNote)
                 {
                     note1.enabled = true;
                     showingNote = true;
@@ -133,7 +139,7 @@ public class InteractionSystem : MonoBehaviour
                 }
             }
 
-            else if (hit.transform.name == "Hint")
+            else if (hit.transform.tag == "Hint1")
             {
                 if (!showingPopup)
                 {
@@ -142,9 +148,8 @@ public class InteractionSystem : MonoBehaviour
                     tempPopup.GetComponentInChildren<TMP_Text>().SetText("Find the key to open the gate");
                 }
 
-                if (Interactables.Contains(hit.transform.name) && Input.GetMouseButtonDown(0) && !showingNote)
-                {
-                    
+                if (Interactables.Contains("Hint1") && Input.GetMouseButtonDown(0) && !showingNote)
+                {            
                     showingNote = true;
                 }
                 else if (showingNote && Input.GetMouseButtonDown(0))
@@ -154,7 +159,7 @@ public class InteractionSystem : MonoBehaviour
                 }
             }
 
-            else if (hit.transform.name == "DoubleDoorTrigger")
+            else if (hit.transform.tag == "DoubleDoorTrigger1")
             {
                 if (!showingPopup && !DoubleDoorisOpen && PlayerScript.CheckInventory("Key"))
                 {
@@ -171,7 +176,7 @@ public class InteractionSystem : MonoBehaviour
                 }
 
 
-                else if (Interactables.Contains(hit.transform.name) && Input.GetMouseButtonDown(0) && !DoubleDoorisOpen && PlayerScript.CheckInventory("Key"))
+                else if (Interactables.Contains("DoubleDoorTrigger1") && Input.GetMouseButtonDown(0) && !DoubleDoorisOpen && PlayerScript.CheckInventory("Key"))
                 {
                     DoubleDoorisOpen = true;
                     RightDoubleDoor.Play("RightDoubleDoorOpen", 0, 0.0f);
@@ -180,8 +185,6 @@ public class InteractionSystem : MonoBehaviour
                     showingPopup = false; 
                 }
             }
-
-
         }
 
         else if (showingPopup)

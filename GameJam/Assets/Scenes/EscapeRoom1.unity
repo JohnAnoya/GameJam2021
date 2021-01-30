@@ -1149,6 +1149,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Note_1
       objectReference: {fileID: 0}
+    - target: {fileID: 4883379290849355137, guid: 571f5dec7e36f1d44bd714b42ba5c2ee,
+        type: 3}
+      propertyPath: m_TagString
+      value: Note1
+      objectReference: {fileID: 0}
     - target: {fileID: 4883379290849458593, guid: 571f5dec7e36f1d44bd714b42ba5c2ee,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1589,7 +1594,7 @@ GameObject:
   - component: {fileID: 399399885}
   m_Layer: 0
   m_Name: DoubleDoorTrigger
-  m_TagString: Untagged
+  m_TagString: DoubleDoorTrigger1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5718,7 +5723,7 @@ GameObject:
   - component: {fileID: 1064611796}
   m_Layer: 0
   m_Name: Hint
-  m_TagString: Untagged
+  m_TagString: Hint1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13167,6 +13172,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FireplaceSwitch
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ab11dbc123197d845af6d1f9fe9784d0, type: 3}
+      propertyPath: m_TagString
+      value: FireplaceSwitch
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ab11dbc123197d845af6d1f9fe9784d0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -38.446297
@@ -13916,6 +13925,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 127
+      objectReference: {fileID: 0}
+    - target: {fileID: 7447022692855013307, guid: 6b07ab31d47036645833e234477aa56f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Key
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7447022692855013306, guid: 6b07ab31d47036645833e234477aa56f, type: 3}
