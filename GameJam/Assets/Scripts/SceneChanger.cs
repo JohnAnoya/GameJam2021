@@ -7,6 +7,9 @@ public class SceneChanger : MonoBehaviour
 {
     public string sceneName;
 
+    public Animator transition;
+    public float transitionTime = 1f;
+
     void OnTriggerEnter(Collider other)
     {
         Debug.Log("ENTERED COLLISION COMMAND");
@@ -15,5 +18,13 @@ public class SceneChanger : MonoBehaviour
             Debug.Log("COLLIDED");
             SceneManager.LoadScene(sceneName);
         }
+    }
+
+    IEnumerator LoadLevel(int levelIndex)
+    {
+        transition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(transitionTime);
+        SceneManager.LoadScene(levelIndex);
     }
 }
