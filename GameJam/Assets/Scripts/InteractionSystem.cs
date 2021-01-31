@@ -48,8 +48,10 @@ public class InteractionSystem : MonoBehaviour
         //Interactables.Add("Book_Open");   
 
 
-
-        switchSound = GameObject.Find("FireplaceSwitch").GetComponent<AudioSource>();
+        if (GameObject.Find("FireplaceSwitch"))
+        {
+            switchSound = GameObject.Find("FireplaceSwitch").GetComponent<AudioSource>();
+        }
     }
 
     // Update is called once per frame
