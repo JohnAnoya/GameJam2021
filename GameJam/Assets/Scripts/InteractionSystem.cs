@@ -245,7 +245,7 @@ public class InteractionSystem : MonoBehaviour
                 if (!showingPopup)
                 {
                     showingPopup = true;
-                    tempPopup = Instantiate(InteractionPopUp, new Vector3(hit.transform.position.x, hit.transform.position.y + 1.0f, hit.transform.position.z - 0.4f), Quaternion.identity);
+                    tempPopup = Instantiate(InteractionPopUp, new Vector3(hit.transform.position.x, hit.transform.position.y + 0.3f, hit.transform.position.z - 0.4f), Quaternion.identity);
                     tempPopup.GetComponentInChildren<TMP_Text>().SetText("Read Note");
                 }
 
