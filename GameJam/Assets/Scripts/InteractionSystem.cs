@@ -24,6 +24,7 @@ public class InteractionSystem : MonoBehaviour
 
     [SerializeField] private Animator RightDoubleDoor = null;
     [SerializeField] private Animator LeftDoubleDoor = null;
+    [SerializeField] private Animator SingleDoorPrison = null;
     bool DoubleDoorisOpen = false;
 
     int PotionCount = 0;
@@ -158,6 +159,9 @@ public class InteractionSystem : MonoBehaviour
                 {  
                     switchSound.time = 0.45f;
                     switchSound.Play();
+
+
+                    SingleDoorPrison.Play("SingleDoorOpen", 0, 0.0f);
                 }
             }
 
