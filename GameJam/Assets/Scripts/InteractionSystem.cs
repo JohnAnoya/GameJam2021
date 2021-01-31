@@ -527,7 +527,6 @@ public class InteractionSystem : MonoBehaviour
                 }
             }
 
-
             else if (hit.transform.tag == "8KeyPad")
             {
                 if (!showingPopup)

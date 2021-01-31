@@ -11,7 +11,8 @@ public class CameraRotation : MonoBehaviour
 
      void Awake()
     {
-        Cursor.lockState = CursorLockMode.Locked; 
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     // Start is called before the first frame update
