@@ -33,6 +33,7 @@ public class InteractionSystem : MonoBehaviour
     [SerializeField] private Animator RightDoubleDoor = null;
     [SerializeField] private Animator LeftDoubleDoor = null;
     [SerializeField] private Animator SingleDoorPrison = null;
+    [SerializeField] private Animator ExitDoor = null;
     bool DoubleDoorisOpen = false;
 
     int PotionCount = 0;
@@ -181,7 +182,7 @@ public class InteractionSystem : MonoBehaviour
                 {
                     showingPopup = true;
                     tempPopup = Instantiate(InteractionPopUp, new Vector3(hit.transform.position.x - 0.4f, hit.transform.position.y, hit.transform.position.z + 0.5f), Quaternion.identity);
-                    tempPopup.GetComponentInChildren<TMP_Text>().SetText("Ah yies");
+                    tempPopup.GetComponentInChildren<TMP_Text>().SetText("Pull book");
                    // Debug.Log("Ah yies");
                 }
 
@@ -190,7 +191,7 @@ public class InteractionSystem : MonoBehaviour
                     switchSound.time = 0.45f;
                     switchSound.Play();
 
-                    // big animation guis
+                    ExitDoor.Play("ExitDoorOpen", 0, 0.0f);
                 }
 
             }
