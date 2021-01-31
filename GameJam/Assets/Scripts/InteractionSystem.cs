@@ -28,8 +28,8 @@ public class InteractionSystem : MonoBehaviour
 
     int PotionCount = 0;
 
-    AudioSource audioData;
-    
+    AudioSource switchSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,7 +45,11 @@ public class InteractionSystem : MonoBehaviour
         Interactables.Add("DoubleDoorTrigger2");
         Interactables.Add("DoubleDoorTrigger3");
         Interactables.Add("Brew");
-        //Interactables.Add("Book_Open");     
+        //Interactables.Add("Book_Open");   
+
+
+
+        switchSound = GameObject.Find("FireplaceSwitch").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -107,20 +111,27 @@ public class InteractionSystem : MonoBehaviour
                     if (firePlace) //if fireplace is on
                     {
                         tempPopup.GetComponentInChildren<TMP_Text>().SetText("Turn on Fireplace"); //Update text
-                        Debug.Log("Turned off Fireplace");
                         firePlace = false;
                         fireplaceEmitter.Stop();
 
-                        Debug.Log("Sound Light");
+                        Destroy(tempPopup);
+                        showingPopup = false;
+
+                        switchSound.time = 0.45f; 
+                        switchSound.Play();
                     }
 
                     else
                     {
                         tempPopup.GetComponentInChildren<TMP_Text>().SetText("Turn off Fireplace"); //Update text
-                        Debug.Log("Turned on Fireplace");
-
                         firePlace = true;
                         fireplaceEmitter.Play();
+
+                        Destroy(tempPopup);
+                        showingPopup = false;
+
+                        switchSound.time = 0.45f;
+                        switchSound.Play();
                     }
 
                 }
