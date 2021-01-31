@@ -600,7 +600,7 @@ GameObject:
   - component: {fileID: 201334529}
   m_Layer: 0
   m_Name: Five
-  m_TagString: Untagged
+  m_TagString: 5KeyPad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -628,11 +628,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 201334527}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.240116, y: 3.3016083, z: 1.0622804}
+  m_Center: {x: 0.007200849, y: 1.150805, z: -0.011479694}
 --- !u!23 &201334530
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1823,7 +1823,7 @@ GameObject:
   - component: {fileID: 561994902}
   m_Layer: 0
   m_Name: Enter
-  m_TagString: Untagged
+  m_TagString: Enter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1851,11 +1851,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 561994900}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.0603396, y: 3.9168491, z: 1.2386684}
+  m_Center: {x: 0.00048776018, y: 1.458426, z: -0.0051038736}
 --- !u!23 &561994903
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2623,7 +2623,7 @@ GameObject:
   - component: {fileID: 721414849}
   m_Layer: 0
   m_Name: Two
-  m_TagString: Untagged
+  m_TagString: 2KeyPad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2651,11 +2651,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 721414847}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.2541512, y: 2.4861743, z: 1}
+  m_Center: {x: 0.019767638, y: 0.74308795, z: -3.2101702e-17}
 --- !u!23 &721414850
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3507,7 +3507,7 @@ GameObject:
   - component: {fileID: 955150967}
   m_Layer: 0
   m_Name: Six
-  m_TagString: Untagged
+  m_TagString: 6KeyPad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3535,11 +3535,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 955150965}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.1977298, y: 2.6637132, z: 1.1462896}
+  m_Center: {x: -0.00050735835, y: 0.8318572, z: 0.0005515532}
 --- !u!23 &955150968
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3912,11 +3912,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1049787657}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.1660984, y: 4.1246123, z: 1.1506615}
+  m_Center: {x: -0.00010351931, y: 1.562307, z: 0.0055165594}
 --- !u!23 &1049787660
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4011,7 +4011,7 @@ GameObject:
   - component: {fileID: 1118414326}
   m_Layer: 0
   m_Name: Four
-  m_TagString: Untagged
+  m_TagString: 4KeyPad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4039,11 +4039,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1118414324}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.2213482, y: 2.5174353, z: 1.15455}
+  m_Center: {x: -0.0229756, y: 0.7587184, z: 0.03357122}
 --- !u!23 &1118414327
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5727,7 +5727,7 @@ GameObject:
   - component: {fileID: 1456887288}
   m_Layer: 0
   m_Name: Reset
-  m_TagString: Untagged
+  m_TagString: Reset
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5755,11 +5755,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1456887286}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.0616454, y: 3.939749, z: 1.1427557}
+  m_Center: {x: 0.008380634, y: 1.469876, z: -0.004001324}
 --- !u!23 &1456887289
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6156,7 +6156,7 @@ GameObject:
   - component: {fileID: 1570368300}
   m_Layer: 0
   m_Name: One
-  m_TagString: Untagged
+  m_TagString: 1KeyPad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6184,11 +6184,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1570368298}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.2387213, y: 3.5456364, z: 1}
+  m_Center: {x: 0.002458228, y: 1.2728188, z: 2.4290194e-16}
 --- !u!23 &1570368301
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6513,7 +6513,7 @@ GameObject:
   - component: {fileID: 1611701393}
   m_Layer: 0
   m_Name: Three
-  m_TagString: Untagged
+  m_TagString: 3KeyPad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6541,11 +6541,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1611701391}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.230633, y: 3.1535027, z: 1.2069577}
+  m_Center: {x: 0.0112642655, y: 1.0767516, z: -0.029041288}
 --- !u!23 &1611701394
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6607,7 +6607,7 @@ GameObject:
   - component: {fileID: 1623138494}
   m_Layer: 0
   m_Name: Seven
-  m_TagString: Untagged
+  m_TagString: 7KeyPad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6635,11 +6635,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1623138492}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.2107937, y: 3.2335353, z: 1.1247556}
+  m_Center: {x: 0.012308559, y: 1.1167693, z: -0.00649119}
 --- !u!23 &1623138495
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6701,7 +6701,7 @@ GameObject:
   - component: {fileID: 1627588630}
   m_Layer: 0
   m_Name: Eight
-  m_TagString: Untagged
+  m_TagString: 8KeyPad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6729,11 +6729,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1627588628}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.1776153, y: 3.227793, z: 1.190256}
+  m_Center: {x: -0.006940415, y: 1.1138971, z: 0.0016188549}
 --- !u!23 &1627588631
 MeshRenderer:
   m_ObjectHideFlags: 0

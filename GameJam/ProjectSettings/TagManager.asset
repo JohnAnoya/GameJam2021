@@ -20,6 +20,17 @@ TagManager:
   - Brew
   - PrisonSwitch
   - BookButton
+  - 1KeyPad
+  - 2KeyPad
+  - 3KeyPad
+  - 4KeyPad
+  - 5KeyPad
+  - 6KeyPad
+  - 7KeyPad
+  - 8KeyPad
+  - 9KeyPad
+  - Enter
+  - Reset
   layers:
   - Default
   - TransparentFX
