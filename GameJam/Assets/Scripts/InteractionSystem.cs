@@ -224,7 +224,7 @@ public class InteractionSystem : MonoBehaviour
                 {
                     showingPopup = true;
                     tempPopup = Instantiate(InteractionPopUp, new Vector3(hit.transform.position.x, hit.transform.position.y + 1.0f, hit.transform.position.z - 0.4f), Quaternion.identity);
-                    tempPopup.GetComponentInChildren<TMP_Text>().SetText("Pick up note");
+                    tempPopup.GetComponentInChildren<TMP_Text>().SetText("Read Note");
                 }
 
                 if (Interactables.Contains("Note1") && Input.GetMouseButtonDown(0) && !showingNote)
@@ -246,7 +246,7 @@ public class InteractionSystem : MonoBehaviour
                 {
                     showingPopup = true;
                     tempPopup = Instantiate(InteractionPopUp, new Vector3(hit.transform.position.x, hit.transform.position.y + 1.0f, hit.transform.position.z - 0.4f), Quaternion.identity);
-                    tempPopup.GetComponentInChildren<TMP_Text>().SetText("Pick up note");
+                    tempPopup.GetComponentInChildren<TMP_Text>().SetText("Read Note");
                 }
 
                 if (Interactables.Contains("Note2") && Input.GetMouseButtonDown(0) && !showingNote)
@@ -267,7 +267,7 @@ public class InteractionSystem : MonoBehaviour
                 {
                     showingPopup = true;
                     tempPopup = Instantiate(InteractionPopUp, new Vector3(hit.transform.position.x, hit.transform.position.y + 1.0f, hit.transform.position.z - 0.4f), Quaternion.identity);
-                    tempPopup.GetComponentInChildren<TMP_Text>().SetText("Pick up note");
+                    tempPopup.GetComponentInChildren<TMP_Text>().SetText("Read Note");
                 }
 
                 if (Interactables.Contains("Note3") && Input.GetMouseButtonDown(0) && !showingNote)
@@ -289,7 +289,7 @@ public class InteractionSystem : MonoBehaviour
                 {
                     showingPopup = true;
                     tempPopup = Instantiate(InteractionPopUp, new Vector3(hit.transform.position.x, hit.transform.position.y, hit.transform.position.z), Quaternion.identity);
-                    tempPopup.GetComponentInChildren<TMP_Text>().SetText("Pick up note");
+                    tempPopup.GetComponentInChildren<TMP_Text>().SetText("Read Note");
                 }
 
                 if (Interactables.Contains("Note4") && Input.GetMouseButtonDown(0) && !showingNote)
@@ -310,7 +310,7 @@ public class InteractionSystem : MonoBehaviour
                 {
                     showingPopup = true;
                     tempPopup = Instantiate(InteractionPopUp, new Vector3(hit.transform.position.x, hit.transform.position.y, hit.transform.position.z), Quaternion.identity);
-                    tempPopup.GetComponentInChildren<TMP_Text>().SetText("Pick up note");
+                    tempPopup.GetComponentInChildren<TMP_Text>().SetText("Read Note");
                 }
 
                 if (Interactables.Contains("Note5") && Input.GetMouseButtonDown(0) && !showingNote)
