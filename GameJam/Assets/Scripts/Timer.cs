@@ -14,12 +14,22 @@ public class Timer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
 
+            Minutes = 10;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+       
+       
+        
+           
+        
+
         timeDisplay.text = Minutes.ToString() + "." + Seconds.ToString();
         if (Seconds <= 0)
         {
