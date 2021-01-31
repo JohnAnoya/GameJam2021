@@ -6375,11 +6375,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0073100026, y: 0.011451148, z: 0.0074408925}
   m_Center: {x: 0.0016049193, y: -0.00062672154, z: 0.0036709988}
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> parent of 1c5d13f... Level-3-Music
 --- !u!1 &1237223511
 GameObject:
   m_ObjectHideFlags: 0
@@ -6391,16 +6386,9 @@ GameObject:
   - component: {fileID: 1237223512}
   - component: {fileID: 1237223514}
   - component: {fileID: 1237223513}
-<<<<<<< HEAD
   m_Layer: 0
   m_Name: FireplaceSwitch
   m_TagString: FireplaceSwitch
-=======
-  - component: {fileID: 1237223515}
-  m_Layer: 0
-  m_Name: SwitchSound
-  m_TagString: Untagged
->>>>>>> parent of 1c5d13f... Level-3-Music
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6419,37 +6407,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
 --- !u!82 &1237223513
-=======
---- !u!114 &1237223513
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1237223511}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1de9da0e0df02234082b2845590c8e53, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playSound: {fileID: 0}
---- !u!135 &1237223514
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1237223511}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!82 &1237223515
->>>>>>> parent of 1c5d13f... Level-3-Music
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6460,11 +6418,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 3a70e3acc90251446a16fdc6feb5f7f1, type: 3}
-<<<<<<< HEAD
   m_PlayOnAwake: 1
-=======
-  m_PlayOnAwake: 0
->>>>>>> parent of 1c5d13f... Level-3-Music
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -6549,7 +6503,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-<<<<<<< HEAD
 --- !u!65 &1237223514
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6563,9 +6516,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3124895, y: 0.95559835, z: 0.7668855}
   m_Center: {x: 0.084605694, y: 0.07051587, z: 0.03017366}
->>>>>>> 247c36c405fa401c93b1bb666fc0bc480fa7c073
-=======
->>>>>>> parent of 1c5d13f... Level-3-Music
 --- !u!4 &1239189381 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2116764609415951189, guid: 842892f3d85677f478d3425fb4eb3305,
