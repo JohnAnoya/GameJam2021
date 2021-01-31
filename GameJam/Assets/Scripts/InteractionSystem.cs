@@ -36,6 +36,7 @@ public class InteractionSystem : MonoBehaviour
         Items.Add("Key");
         Items.Add("Potion");
         Interactables.Add("FireplaceSwitch");
+        Interactables.Add("PrisonSwitch");
         Interactables.Add("Note1");
         Interactables.Add("Note2");
         Interactables.Add("Note3");
@@ -51,6 +52,11 @@ public class InteractionSystem : MonoBehaviour
         if (GameObject.Find("FireplaceSwitch"))
         {
             switchSound = GameObject.Find("FireplaceSwitch").GetComponent<AudioSource>();
+        }
+
+        else if (GameObject.Find("PrisonSwitch"))
+        {
+            switchSound = GameObject.Find("PrisonSwitch").GetComponent<AudioSource>();
         }
     }
 
@@ -136,6 +142,22 @@ public class InteractionSystem : MonoBehaviour
                         switchSound.Play();
                     }
 
+                }
+            }
+
+            else if (hit.transform.tag == "PrisonSwitch")
+            {
+                if (!showingPopup)
+                {
+                    showingPopup = true;
+                    tempPopup = Instantiate(InteractionPopUp, new Vector3(hit.transform.position.x, hit.transform.position.y, hit.transform.position.z), Quaternion.identity);
+                    tempPopup.GetComponentInChildren<TMP_Text>().SetText("Use");
+                }
+
+                if (Interactables.Contains("PrisonSwitch") && Input.GetMouseButtonDown(0))
+                {  
+                    switchSound.time = 0.45f;
+                    switchSound.Play();
                 }
             }
 

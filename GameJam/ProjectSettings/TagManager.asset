@@ -18,6 +18,7 @@ TagManager:
   - Hint1
   - Hint2
   - Brew
+  - PrisonSwitch
   layers:
   - Default
   - TransparentFX
