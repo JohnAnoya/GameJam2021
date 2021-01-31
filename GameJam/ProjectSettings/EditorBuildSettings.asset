@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 9184693a6b33d674c936b0fa0b51752a
+  - enabled: 1
     path: Assets/Scenes/EscapeRoom1.unity
     guid: 8d58d74a8ffc54e45ac2c9be3d5ec198
   - enabled: 1
@@ -14,4 +17,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EscapeRoom3.unity
     guid: 5b066a3dc1220b94f8f6617b4abb89ba
+  - enabled: 1
+    path: Assets/Scenes/EscapeRoom4.unity
+    guid: 806694a84c79d944eafa33f48d6b49ba
+  - enabled: 1
+    path: Assets/Scenes/EscapeRoom5.unity
+    guid: b01123c359876e14c9b1b956d33a3fa7
+  - enabled: 1
+    path: Assets/Scenes/LosingScene.unity
+    guid: a8bfeb26394cd1648aa5bb9c211528b2
   m_configObjects: {}
