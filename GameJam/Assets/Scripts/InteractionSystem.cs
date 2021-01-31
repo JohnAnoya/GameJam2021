@@ -251,5 +251,11 @@ public class InteractionSystem : MonoBehaviour
             showingPopup = false;
             Destroy(tempPopup);
         }
+
+        else if (showingNote)
+        {
+            note1.enabled = false;
+            showingNote = false;
+        }
     }
 }
