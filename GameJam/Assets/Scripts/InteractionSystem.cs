@@ -238,6 +238,69 @@ public class InteractionSystem : MonoBehaviour
                 }
             }
 
+            else if (hit.transform.tag == "Note3")
+            {
+                if (!showingPopup)
+                {
+                    showingPopup = true;
+                    tempPopup = Instantiate(InteractionPopUp, new Vector3(hit.transform.position.x, hit.transform.position.y + 1.0f, hit.transform.position.z - 0.4f), Quaternion.identity);
+                    tempPopup.GetComponentInChildren<TMP_Text>().SetText("Pick up note");
+                }
+
+                if (Interactables.Contains("Note3") && Input.GetMouseButtonDown(0) && !showingNote)
+                {
+                    note3.enabled = true;
+                    showingNote = true;
+                }
+                else if (showingNote && Input.GetMouseButtonDown(0))
+                {
+                    note3.enabled = false;
+                    showingNote = false;
+                }
+            }
+
+
+            else if (hit.transform.tag == "Note4")
+            {
+                if (!showingPopup)
+                {
+                    showingPopup = true;
+                    tempPopup = Instantiate(InteractionPopUp, new Vector3(hit.transform.position.x, hit.transform.position.y + 1.0f, hit.transform.position.z - 0.4f), Quaternion.identity);
+                    tempPopup.GetComponentInChildren<TMP_Text>().SetText("Pick up note");
+                }
+
+                if (Interactables.Contains("Note4") && Input.GetMouseButtonDown(0) && !showingNote)
+                {
+                    note4.enabled = true;
+                    showingNote = true;
+                }
+                else if (showingNote && Input.GetMouseButtonDown(0))
+                {
+                    note4.enabled = false;
+                    showingNote = false;
+                }
+            }
+
+            else if (hit.transform.tag == "Note5")
+            {
+                if (!showingPopup)
+                {
+                    showingPopup = true;
+                    tempPopup = Instantiate(InteractionPopUp, new Vector3(hit.transform.position.x, hit.transform.position.y, hit.transform.position.z), Quaternion.identity);
+                    tempPopup.GetComponentInChildren<TMP_Text>().SetText("Pick up note");
+                }
+
+                if (Interactables.Contains("Note5") && Input.GetMouseButtonDown(0) && !showingNote)
+                {
+                    note5.enabled = true;
+                    showingNote = true;
+                }
+                else if (showingNote && Input.GetMouseButtonDown(0))
+                {
+                    note5.enabled = false;
+                    showingNote = false;
+                }
+            }
 
             else if (hit.transform.tag == "Hint1")
             {
