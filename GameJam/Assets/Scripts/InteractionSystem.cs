@@ -47,6 +47,8 @@ public class InteractionSystem : MonoBehaviour
         Interactables.Add("DoubleDoorTrigger2");
         Interactables.Add("DoubleDoorTrigger3");
         Interactables.Add("Brew");
+        Interactables.Add("BookButton");
+
         //Interactables.Add("Book_Open");   
 
 
@@ -126,7 +128,7 @@ public class InteractionSystem : MonoBehaviour
                         Destroy(tempPopup);
                         showingPopup = false;
 
-                        switchSound.time = 0.45f; 
+                        switchSound.time = 0.45f;
                         switchSound.Play();
                     }
 
@@ -156,13 +158,33 @@ public class InteractionSystem : MonoBehaviour
                 }
 
                 if (Interactables.Contains("PrisonSwitch") && Input.GetMouseButtonDown(0))
-                {  
+                {
                     switchSound.time = 0.45f;
                     switchSound.Play();
 
 
                     SingleDoorPrison.Play("SingleDoorOpen", 0, 0.0f);
                 }
+            }
+
+            else if (hit.transform.tag == "BookButton") 
+            {
+                if (!showingPopup)
+                {
+                    showingPopup = true;
+                    tempPopup = Instantiate(InteractionPopUp, new Vector3(hit.transform.position.x - 0.4f, hit.transform.position.y, hit.transform.position.z + 0.5f), Quaternion.identity);
+                    tempPopup.GetComponentInChildren<TMP_Text>().SetText("Ah yies");
+                   // Debug.Log("Ah yies");
+                }
+
+                if (Interactables.Contains("BookButton") && Input.GetMouseButtonDown(0)) 
+                {
+                    switchSound.time = 0.45f;
+                    switchSound.Play();
+
+                    // big animation guis
+                }
+
             }
 
             else if (hit.transform.tag == "Note1")

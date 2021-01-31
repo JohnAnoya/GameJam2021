@@ -19,6 +19,7 @@ TagManager:
   - Hint2
   - Brew
   - PrisonSwitch
+  - BookButton
   layers:
   - Default
   - TransparentFX
