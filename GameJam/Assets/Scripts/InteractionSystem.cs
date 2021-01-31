@@ -18,6 +18,14 @@ public class InteractionSystem : MonoBehaviour
 
     [SerializeField]
     Image note1;
+    [SerializeField]
+    Image note2;
+    [SerializeField]
+    Image note3;
+    [SerializeField]
+    Image note4;
+    [SerializeField]
+    Image note5;
     bool showingNote = false;
     //[SerializeField]
     //Image hintBook;
@@ -208,6 +216,29 @@ public class InteractionSystem : MonoBehaviour
                 }
             }
 
+
+            else if (hit.transform.tag == "Note2")
+            {
+                if (!showingPopup)
+                {
+                    showingPopup = true;
+                    tempPopup = Instantiate(InteractionPopUp, new Vector3(hit.transform.position.x, hit.transform.position.y + 1.0f, hit.transform.position.z - 0.4f), Quaternion.identity);
+                    tempPopup.GetComponentInChildren<TMP_Text>().SetText("Pick up note");
+                }
+
+                if (Interactables.Contains("Note2") && Input.GetMouseButtonDown(0) && !showingNote)
+                {
+                    note2.enabled = true;
+                    showingNote = true;
+                }
+                else if (showingNote && Input.GetMouseButtonDown(0))
+                {
+                    note2.enabled = false;
+                    showingNote = false;
+                }
+            }
+
+
             else if (hit.transform.tag == "Hint1")
             {
                 if (!showingPopup)
@@ -304,7 +335,31 @@ public class InteractionSystem : MonoBehaviour
 
         else if (showingNote)
         {
-            note1.enabled = false;
+            if (note1)
+            {
+                note1.enabled = false;
+            }
+
+            else if (note2)
+            {
+                note2.enabled = false;
+            }
+
+            else if (note3)
+            {
+                note3.enabled = false;
+            }
+
+            else if (note4)
+            {
+                note4.enabled = false;
+            }
+
+            else if (note5)
+            {
+                note5.enabled = false;
+            }
+
             showingNote = false;
         }
     }
