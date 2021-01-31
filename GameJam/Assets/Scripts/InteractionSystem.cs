@@ -40,6 +40,9 @@ public class InteractionSystem : MonoBehaviour
 
     AudioSource switchSound;
 
+
+    GameObject AnswerScreen; 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,8 +58,22 @@ public class InteractionSystem : MonoBehaviour
         Interactables.Add("DoubleDoorTrigger1");
         Interactables.Add("DoubleDoorTrigger2");
         Interactables.Add("DoubleDoorTrigger3");
+        Interactables.Add("DoubleDoorTrigger4");
         Interactables.Add("Brew");
         Interactables.Add("BookButton");
+
+        //* KEYPAD STUFF *//
+        Interactables.Add("1KeyPad");
+        Interactables.Add("2KeyPad");
+        Interactables.Add("3KeyPad");
+        Interactables.Add("4KeyPad");
+        Interactables.Add("5KeyPad");
+        Interactables.Add("6KeyPad");
+        Interactables.Add("7KeyPad");
+        Interactables.Add("8KeyPad");
+        Interactables.Add("9KeyPad");
+        Interactables.Add("Enter");
+        Interactables.Add("Reset");
 
         //Interactables.Add("Book_Open");   
 
@@ -70,6 +87,12 @@ public class InteractionSystem : MonoBehaviour
         {
             switchSound = GameObject.Find("PrisonSwitch").GetComponent<AudioSource>();
         }
+
+        else if (GameObject.Find("AnswerScreen"))
+        {
+            Debug.Log("Test");
+            AnswerScreen = GameObject.Find("AnswerScreen");
+        }
     }
 
     // Update is called once per frame
@@ -80,14 +103,13 @@ public class InteractionSystem : MonoBehaviour
 
     void CheckForInteractions()
     {
-        var PlayerScript = gameObject.GetComponent<Player>(); 
+        var PlayerScript = gameObject.GetComponent<Player>();
 
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0));
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit, 1.0f))
         {
-            Debug.DrawRay(Camera.main.transform.position, ray.direction, Color.green);
             if (hit.transform.tag == "Key")
             {
                 if (!showingPopup && !firePlace)
@@ -176,17 +198,17 @@ public class InteractionSystem : MonoBehaviour
                 }
             }
 
-            else if (hit.transform.tag == "BookButton") 
+            else if (hit.transform.tag == "BookButton")
             {
                 if (!showingPopup)
                 {
                     showingPopup = true;
                     tempPopup = Instantiate(InteractionPopUp, new Vector3(hit.transform.position.x - 0.4f, hit.transform.position.y, hit.transform.position.z + 0.5f), Quaternion.identity);
                     tempPopup.GetComponentInChildren<TMP_Text>().SetText("Pull book");
-                   // Debug.Log("Ah yies");
+                    // Debug.Log("Ah yies");
                 }
 
-                if (Interactables.Contains("BookButton") && Input.GetMouseButtonDown(0)) 
+                if (Interactables.Contains("BookButton") && Input.GetMouseButtonDown(0))
                 {
                     switchSound.time = 0.45f;
                     switchSound.Play();
@@ -389,6 +411,200 @@ public class InteractionSystem : MonoBehaviour
                 }
 
             }
+
+            else if (hit.transform.tag == "1KeyPad")
+            {
+                if (!showingPopup)
+                {
+                    Debug.Log("On Key 1");
+                    showingPopup = true;
+                    tempPopup = Instantiate(InteractionPopUp, new Vector3(hit.transform.position.x, hit.transform.position.y, hit.transform.position.z - 0.2f), Quaternion.identity);
+                    tempPopup.GetComponentInChildren<TMP_Text>().SetText("Press 1");
+                    tempPopup.GetComponentInChildren<TMP_Text>().fontSize = 20;
+                }
+
+                else if (Interactables.Contains("1KeyPad") && Input.GetMouseButtonDown(0) && AnswerScreen.GetComponentInChildren<TMP_Text>().text.Length < 9)
+                {
+                    AnswerScreen.GetComponentInChildren<TMP_Text>().SetText(AnswerScreen.GetComponentInChildren<TMP_Text>().text + "1");
+                }
+            }
+
+            else if (hit.transform.tag == "2KeyPad")
+            {
+                if (!showingPopup)
+                {
+                    Debug.Log("On Key 2");
+                    showingPopup = true;
+                    tempPopup = Instantiate(InteractionPopUp, new Vector3(hit.transform.position.x, hit.transform.position.y, hit.transform.position.z - 0.2f), Quaternion.identity);
+                    tempPopup.GetComponentInChildren<TMP_Text>().SetText("Press 2");
+                    tempPopup.GetComponentInChildren<TMP_Text>().fontSize = 20;
+                }
+
+                else if (Interactables.Contains("2KeyPad") && Input.GetMouseButtonDown(0) && AnswerScreen.GetComponentInChildren<TMP_Text>().text.Length < 9)
+                {
+                    AnswerScreen.GetComponentInChildren<TMP_Text>().SetText(AnswerScreen.GetComponentInChildren<TMP_Text>().text + "2");
+                }
+            }
+
+
+            else if (hit.transform.tag == "3KeyPad")
+            {
+                if (!showingPopup)
+                {
+                    showingPopup = true;
+                    tempPopup = Instantiate(InteractionPopUp, new Vector3(hit.transform.position.x, hit.transform.position.y, hit.transform.position.z - 0.2f), Quaternion.identity);
+                    tempPopup.GetComponentInChildren<TMP_Text>().SetText("Press 3");
+                    tempPopup.GetComponentInChildren<TMP_Text>().fontSize = 20;
+                }
+
+                else if (Interactables.Contains("3KeyPad") && Input.GetMouseButtonDown(0) && AnswerScreen.GetComponentInChildren<TMP_Text>().text.Length < 9)
+                {
+                    AnswerScreen.GetComponentInChildren<TMP_Text>().SetText(AnswerScreen.GetComponentInChildren<TMP_Text>().text + "3");
+                }
+            }
+
+            else if (hit.transform.tag == "4KeyPad")
+            {
+                if (!showingPopup)
+                {
+                    showingPopup = true;
+                    tempPopup = Instantiate(InteractionPopUp, new Vector3(hit.transform.position.x, hit.transform.position.y, hit.transform.position.z - 0.2f), Quaternion.identity);
+                    tempPopup.GetComponentInChildren<TMP_Text>().SetText("Press 4");
+                    tempPopup.GetComponentInChildren<TMP_Text>().fontSize = 20;
+                }
+
+                else if (Interactables.Contains("4KeyPad") && Input.GetMouseButtonDown(0) && AnswerScreen.GetComponentInChildren<TMP_Text>().text.Length < 9)
+                {
+                    AnswerScreen.GetComponentInChildren<TMP_Text>().SetText(AnswerScreen.GetComponentInChildren<TMP_Text>().text + "4");
+                }
+            }
+
+            else if (hit.transform.tag == "5KeyPad")
+            {
+                if (!showingPopup)
+                {
+                    showingPopup = true;
+                    tempPopup = Instantiate(InteractionPopUp, new Vector3(hit.transform.position.x, hit.transform.position.y, hit.transform.position.z - 0.2f), Quaternion.identity);
+                    tempPopup.GetComponentInChildren<TMP_Text>().SetText("Press 5");
+                    tempPopup.GetComponentInChildren<TMP_Text>().fontSize = 20;
+                }
+
+                else if (Interactables.Contains("5KeyPad") && Input.GetMouseButtonDown(0) && AnswerScreen.GetComponentInChildren<TMP_Text>().text.Length < 9)
+                {
+                    AnswerScreen.GetComponentInChildren<TMP_Text>().SetText(AnswerScreen.GetComponentInChildren<TMP_Text>().text + "5");
+                }
+            }
+
+            else if (hit.transform.tag == "6KeyPad")
+            {
+                if (!showingPopup)
+                {
+                    showingPopup = true;
+                    tempPopup = Instantiate(InteractionPopUp, new Vector3(hit.transform.position.x, hit.transform.position.y, hit.transform.position.z - 0.2f), Quaternion.identity);
+                    tempPopup.GetComponentInChildren<TMP_Text>().SetText("Press 6");
+                    tempPopup.GetComponentInChildren<TMP_Text>().fontSize = 20;
+                }
+
+                else if (Interactables.Contains("6KeyPad") && Input.GetMouseButtonDown(0) && AnswerScreen.GetComponentInChildren<TMP_Text>().text.Length < 9)
+                {
+                    AnswerScreen.GetComponentInChildren<TMP_Text>().SetText(AnswerScreen.GetComponentInChildren<TMP_Text>().text + "6");
+                }
+            }
+
+            else if (hit.transform.tag == "7KeyPad")
+            {
+                if (!showingPopup)
+                {
+                    showingPopup = true;
+                    tempPopup = Instantiate(InteractionPopUp, new Vector3(hit.transform.position.x, hit.transform.position.y, hit.transform.position.z - 0.2f), Quaternion.identity);
+                    tempPopup.GetComponentInChildren<TMP_Text>().SetText("Press 7");
+                    tempPopup.GetComponentInChildren<TMP_Text>().fontSize = 20;
+                }
+
+                else if (Interactables.Contains("7KeyPad") && Input.GetMouseButtonDown(0) && AnswerScreen.GetComponentInChildren<TMP_Text>().text.Length < 9)
+                {
+                    AnswerScreen.GetComponentInChildren<TMP_Text>().SetText(AnswerScreen.GetComponentInChildren<TMP_Text>().text + "7");
+                }
+            }
+
+
+            else if (hit.transform.tag == "8KeyPad")
+            {
+                if (!showingPopup)
+                {
+                    showingPopup = true;
+                    tempPopup = Instantiate(InteractionPopUp, new Vector3(hit.transform.position.x, hit.transform.position.y, hit.transform.position.z - 0.2f), Quaternion.identity);
+                    tempPopup.GetComponentInChildren<TMP_Text>().SetText("Press 8");
+                    tempPopup.GetComponentInChildren<TMP_Text>().fontSize = 20;
+                }
+
+                else if (Interactables.Contains("8KeyPad") && Input.GetMouseButtonDown(0) && AnswerScreen.GetComponentInChildren<TMP_Text>().text.Length < 9)
+                {
+                    AnswerScreen.GetComponentInChildren<TMP_Text>().SetText(AnswerScreen.GetComponentInChildren<TMP_Text>().text + "8");
+                }
+            }
+
+            else if (hit.transform.tag == "9KeyPad")
+            {
+                if (!showingPopup)
+                {
+                    showingPopup = true;
+                    tempPopup = Instantiate(InteractionPopUp, new Vector3(hit.transform.position.x, hit.transform.position.y, hit.transform.position.z - 0.2f), Quaternion.identity);
+                    tempPopup.GetComponentInChildren<TMP_Text>().SetText("Press 9");
+                    tempPopup.GetComponentInChildren<TMP_Text>().fontSize = 20;
+                }
+
+                else if (Interactables.Contains("9KeyPad") && Input.GetMouseButtonDown(0) && AnswerScreen.GetComponentInChildren<TMP_Text>().text.Length < 9)
+                {
+                    AnswerScreen.GetComponentInChildren<TMP_Text>().SetText(AnswerScreen.GetComponentInChildren<TMP_Text>().text + "9");
+                }
+            }
+
+            else if (hit.transform.tag == "Enter")
+            {
+                if (!showingPopup)
+                {
+                    showingPopup = true;
+                    tempPopup = Instantiate(InteractionPopUp, new Vector3(hit.transform.position.x, hit.transform.position.y, hit.transform.position.z - 0.2f), Quaternion.identity);
+                    tempPopup.GetComponentInChildren<TMP_Text>().SetText("Press Enter");
+                    tempPopup.GetComponentInChildren<TMP_Text>().fontSize = 20;
+                }
+
+                else if (Interactables.Contains("Enter") && Input.GetMouseButtonDown(0))
+                {
+                    if (GameObject.Find("DoubleDoor"))
+                    {
+                        var passcodescript = GameObject.Find("DoubleDoor").GetComponent<PasscodeScript>();
+
+                        if (AnswerScreen.GetComponentInChildren<TMP_Text>().text == passcodescript.GetPassCode())
+                        {
+                            RightDoubleDoor.Play("RightDoubleDoorOpen", 0, 0.0f);
+                            LeftDoubleDoor.Play("LeftDoubleDoorOpen", 0, 0.0f);
+                        }
+
+                        else
+                        {
+                            
+                        }
+                    }         
+                }
+            }
+
+            else if (hit.transform.tag == "Reset")
+            {
+                if (!showingPopup)
+                {
+                    showingPopup = true;
+                    tempPopup = Instantiate(InteractionPopUp, new Vector3(hit.transform.position.x, hit.transform.position.y, hit.transform.position.z - 0.2f), Quaternion.identity);
+                    tempPopup.GetComponentInChildren<TMP_Text>().SetText("Press Reset");
+                    tempPopup.GetComponentInChildren<TMP_Text>().fontSize = 20;
+                }
+
+                else if (Interactables.Contains("Reset") && Input.GetMouseButtonDown(0))
+                {
+                    AnswerScreen.GetComponentInChildren<TMP_Text>().SetText("");
+                }
+            }
         }
 
         else if (showingPopup)
@@ -426,5 +642,7 @@ public class InteractionSystem : MonoBehaviour
 
             showingNote = false;
         }
+
+
     }
 }
